@@ -4,7 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+<<<<<<< HEAD
 import javafx.scene.image.Image;
+=======
+>>>>>>> Initial commit
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,7 +27,10 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Login");
             primaryStage.show();
+<<<<<<< HEAD
             primaryStage.getIcons().add(new Image("com/nadezda/diplom/img/photologo.png"));
+=======
+>>>>>>> Initial commit
         } catch (IOException e) {
             e.printStackTrace();
         }
