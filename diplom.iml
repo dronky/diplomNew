@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="adaptive" level="project" />
     <orderEntry type="library" name="sqljdbc42" level="project" />
+    <orderEntry type="library" name="com.asprise.ocr:java-ocr-api:15.3.0.3" level="project" />
   </component>
 </module>
