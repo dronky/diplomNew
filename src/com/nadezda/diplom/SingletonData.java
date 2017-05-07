@@ -40,7 +40,7 @@ public class SingletonData {
     public User getUserById(int id) {
         if (userList != null && userList.size() > 0) {
             for (User user : userList) {
-                if (id == user.getId()) return user;
+                if (id == user.getUs_id()) return user;
             }
         }
         return null;

@@ -49,10 +49,10 @@ go
 -- Create the [SqlJDBCXAUser] role in master database.
 -- The SQL administrator can later add users to this role to allow users to participate 
 -- in Microsoft JDBC Driver 6.0 for SQL Server distributed transactions.
-if exists (select * from sys.schemas where name = 'SqlJDBCXAUser' ) 
+if exists (select * from sys.schemas where us_name = 'SqlJDBCXAUser' )
 drop schema [SqlJDBCXAUser];
 
-if exists (select * from sys.database_principals where name = 'SqlJDBCXAUser' and type='R') 
+if exists (select * from sys.database_principals where us_name = 'SqlJDBCXAUser' and type='R')
 drop role [SqlJDBCXAUser];
 
 create role [SqlJDBCXAUser]
