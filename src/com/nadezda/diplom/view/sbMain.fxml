@@ -9,14 +9,14 @@
    <children>
       <TableView fx:id="tvUser" layoutX="22.0" layoutY="119.0" prefHeight="501.0" prefWidth="949.0">
         <columns>
-          <TableColumn fx:id="id" prefWidth="43.0" text="id" />
-          <TableColumn fx:id="name" prefWidth="149.0" text="name" />
-            <TableColumn fx:id="sluzhba" prefWidth="75.0" text="sluzhba" />
-            <TableColumn fx:id="doljnost" prefWidth="157.0" text="doljnost" />
-            <TableColumn fx:id="tel" prefWidth="137.0" text="tel" />
-            <TableColumn fx:id="login" prefWidth="149.0" text="login" />
-            <TableColumn fx:id="pass" prefWidth="179.0" text="pass" />
-            <TableColumn fx:id="id_role" prefWidth="59.0" text="id_role" />
+          <TableColumn fx:id="us_id" prefWidth="43.0" text="id" />
+          <TableColumn fx:id="us_name" prefWidth="149.0" text="name" />
+            <TableColumn fx:id="us_sluzhba" prefWidth="75.0" text="sluzhba" />
+            <TableColumn fx:id="us_dolj" prefWidth="157.0" text="doljnost" />
+            <TableColumn fx:id="us_tel" prefWidth="137.0" text="tel" />
+            <TableColumn fx:id="us_login" prefWidth="149.0" text="login" />
+            <TableColumn fx:id="us_pass" prefWidth="179.0" text="pass" />
+            <TableColumn fx:id="us_id_Role" prefWidth="59.0" text="id_role" />
         </columns>
       </TableView>
       <Button layoutX="32.0" layoutY="24.0" mnemonicParsing="false" text="back" />

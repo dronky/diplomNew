@@ -77,7 +77,7 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.setTitle("Slujba bezopasnosti");
-        stage.getIcons().add(new Image("com/sinky/photobit/img/photologo.png"));
+        stage.getIcons().add(new Image("com/nadezda/diplom/img/photologo.png"));
         stage.show();
     }
 

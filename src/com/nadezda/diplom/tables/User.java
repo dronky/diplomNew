@@ -13,7 +13,7 @@ public class User {
     private String us_login;
     private String us_pass;
 
-    public User(int us_id, int us_id_Role, String us_sluzhba, String us_name, String us_dolj, String us_tel, String us_login, String us_pass, String role_id) {
+    public User(int us_id, int us_id_Role, String us_sluzhba, String us_name, String us_dolj, String us_tel, String us_login, String us_pass) {
         this.us_id = us_id;
         this.us_id_Role = us_id_Role;
         this.us_sluzhba = us_sluzhba;
@@ -22,22 +22,8 @@ public class User {
         this.us_tel = us_tel;
         this.us_login = us_login;
         this.us_pass = us_pass;
-        this.role_id = role_id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "us_id=" + us_id +
-                ", us_sluzhba='" + us_sluzhba + '\'' +
-                ", us_name='" + us_name + '\'' +
-                ", us_dolj='" + us_dolj + '\'' +
-                ", us_tel='" + us_tel + '\'' +
-                ", us_login='" + us_login + '\'' +
-                ", us_pass='" + us_pass + '\'' +
-                ", role_id='" + role_id + '\'' +
-                '}';
-    }
 
     public int getUs_id_Role() {
         return us_id_Role;
@@ -102,27 +88,5 @@ public class User {
     public void setUs_pass(String us_pass) {
         this.us_pass = us_pass;
     }
-
-    public String getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(String role_id) {
-        this.role_id = role_id;
-    }
-
-    public User(int us_id, String us_sluzhba, String us_name, String us_dolj, String us_tel, String us_login, String us_pass, String role_id) {
-
-        this.us_id = us_id;
-        this.us_sluzhba = us_sluzhba;
-        this.us_name = us_name;
-        this.us_dolj = us_dolj;
-        this.us_tel = us_tel;
-        this.us_login = us_login;
-        this.us_pass = us_pass;
-        this.role_id = role_id;
-    }
-
-    private String role_id;
 
 }
