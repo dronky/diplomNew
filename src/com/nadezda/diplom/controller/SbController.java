@@ -1,17 +1,16 @@
 package com.nadezda.diplom.controller;
 
 import com.nadezda.diplom.SingletonData;
-import com.nadezda.diplom.tables.User;
+import com.nadezda.diplom.tables.UserConverter;
+import com.nadezda.diplom.tables.UserModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -19,31 +18,58 @@ import java.util.ResourceBundle;
  */
 public class SbController implements Initializable {
 
-    private ObservableList<User> data = FXCollections.observableArrayList();
+    private ObservableList<UserModel> dataModel = FXCollections.observableArrayList();
     @FXML
-    TableView<User> tvUser;
+    TableView<UserModel> tvUser;
     @FXML
-    TableColumn<User, Integer> us_id, us_id_Role;
+    private TableColumn<UserModel, Number> us_id, us_id_Role;
     @FXML
-    TableColumn<User, String> us_sluzhba, us_name, us_dolj, us_tel, us_login, us_pass;
+    private TableColumn<UserModel, String> us_sluzhba, us_name, us_dolj, us_tel, us_login, us_pass;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SingletonData.getInstance().fillUserListFromDB();
-        data.addAll(SingletonData.getInstance().getUserList());
-
-        // устанавливаем тип и значение которое должно хранится в колонке
-        us_id.setCellValueFactory(new PropertyValueFactory<User, Integer>("us_id"));
-        us_id_Role.setCellValueFactory(new PropertyValueFactory<User, Integer>("us_id_Role"));
-        us_sluzhba.setCellValueFactory(new PropertyValueFactory<User, String>("us_sluzhba"));
-        us_name.setCellValueFactory(new PropertyValueFactory<User, String>("us_name"));
-        us_dolj.setCellValueFactory(new PropertyValueFactory<User, String>("us_dolj"));
-        us_tel.setCellValueFactory(new PropertyValueFactory<User, String>("us_tel"));
-        us_login.setCellValueFactory(new PropertyValueFactory<User, String>("us_login"));
-        us_pass.setCellValueFactory(new PropertyValueFactory<User, String>("us_pass"));
-
-        tvUser.setItems(data);
+        updateTable();
+        tvUser.setItems(dataModel);
     }
 
+    private void updateTable() {
+        //Unselect current row
+        tvUser.getSelectionModel().clearSelection();
+        //Get fresh dataModel from DB
+        SingletonData.getInstance().fillUserListFromDB();
+        //Clear current dataModel if exist
+        clearTable(tvUser, dataModel);
+        //convert dataModel to model
+        UserConverter.fillUserObservableList(SingletonData.getInstance().getUserList(), dataModel);
+        fillTable();
+        tvUser.setItems(dataModel);
+    }
 
+    //setting type and value for column
+    private void fillTable() {
+        us_id.setCellValueFactory(cellData -> cellData.getValue().us_idProperty());
+        us_id_Role.setCellValueFactory(cellData -> cellData.getValue().us_id_RoleProperty());
+        us_sluzhba.setCellValueFactory(cellData -> cellData.getValue().us_sluzhbaProperty());
+        us_name.setCellValueFactory(cellData -> cellData.getValue().us_nameProperty());
+        us_dolj.setCellValueFactory(cellData -> cellData.getValue().us_doljnostProperty());
+        us_tel.setCellValueFactory(cellData -> cellData.getValue().us_telProperty());
+        us_login.setCellValueFactory(cellData -> cellData.getValue().us_loginProperty());
+        us_pass.setCellValueFactory(cellData -> cellData.getValue().us_passProperty());
+    }
+
+    private static void clearTable(TableView tv, ObservableList o) {
+        tv.setDisable(false);
+        tv.setOpacity(1);
+        tv.setVisible(true);
+        itemRemover(o);
+    }
+
+    private static void itemRemover(ObservableList data) {
+        if (data.size() > 0) {
+            int i = 0;
+            while (data.size() > 0)
+                data.remove(i);
+            i++;
+        }
+    }
 }

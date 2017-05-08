@@ -25,7 +25,7 @@ public class UserConverter {
         }
     }
 
-    public static User userModelToUser(UserModel cm) {
+    public static User userModelToCustomer(UserModel cm) {
         User c = new User(0, 0, "", "", "", "", "", "");
         c.setUs_id(cm.getUs_id());
         c.setUs_id_Role(cm.getUs_id_Role());
