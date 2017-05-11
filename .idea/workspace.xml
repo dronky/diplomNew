@@ -888,7 +888,7 @@
       <workItem from="1494514602725" duration="1695000" />
       <workItem from="1494518111804" duration="4619000" />
       <workItem from="1494522933400" duration="1886000" />
-      <workItem from="1494527862909" duration="794000" />
+      <workItem from="1494527862909" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="-Made Singleton with User List&#10;-Made Request Helper with user table request&#10;-Fixed tabulation sequence in login.fxml&#10;-Completed login check">
       <created>1493834930893</created>
@@ -967,11 +967,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494522965836</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="-added .idea&#10;-deleted lib">
+      <created>1494528685110</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1494528685110</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62541000" />
+    <option name="totallyTimeSpent" value="62571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1924" height="1056" extended-state="0" />
@@ -1039,7 +1046,8 @@
     <MESSAGE value="-First table show&#10;-Only sb type works" />
     <MESSAGE value="-Successfully transformed data to model.&#10;-Made first Converter for user class." />
     <MESSAGE value="-added .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="-added .idea" />
+    <MESSAGE value="-added .idea&#10;-deleted lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="-added .idea&#10;-deleted lib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
