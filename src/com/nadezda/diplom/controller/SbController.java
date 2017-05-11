@@ -3,6 +3,7 @@ package com.nadezda.diplom.controller;
 import com.nadezda.diplom.SingletonData;
 import com.nadezda.diplom.tables.UserConverter;
 import com.nadezda.diplom.tables.UserModel;
+import com.nadezda.diplom.tables.ViewUtility;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ public class SbController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateTable();
+
         tvUser.setItems(dataModel);
     }
 
@@ -43,6 +45,8 @@ public class SbController implements Initializable {
         UserConverter.fillUserObservableList(SingletonData.getInstance().getUserList(), dataModel);
         fillTable();
         tvUser.setItems(dataModel);
+        //dich
+        ViewUtility.autoFitTable(tvUser);
     }
 
     //setting type and value for column

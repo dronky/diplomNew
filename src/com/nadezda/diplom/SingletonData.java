@@ -12,9 +12,18 @@ import java.util.ArrayList;
 public class SingletonData {
     private static volatile SingletonData instance;
     private ArrayList<User> userList = null;
+    private User currentUser = null;
 
     SingletonData() {
         userList = new ArrayList<>();
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     // USERS

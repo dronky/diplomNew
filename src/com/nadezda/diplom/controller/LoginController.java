@@ -27,7 +27,6 @@ import java.util.ResourceBundle;
  * Created by Nadezda on 02.02.2017.
  */
 public class LoginController implements Initializable {
-    private boolean loginStatus;
     @FXML
     TextField tfLogin;
     @FXML
@@ -37,46 +36,68 @@ public class LoginController implements Initializable {
     @FXML
     Label lbl1;
 
+    //1 - Admin
+    //2 - SB
+    //3 - staff
+    //4 - soglStaff
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loginStatus = false;
+
     }
 
-    private void login(Event e) {
+    private void login(Event e) throws IOException {
         SingletonData.getInstance().fillUserListFromDB();
         for (User user : SingletonData.getInstance().getUserList()) {
-            if (tfLogin.getText().equals(user.getUs_login()) && pfPassword.getText().equals(user.getUs_pass())) {
-                lbl1.setText("Login successful");
-                loginStatus = true;
-                try {
-                    dummy(e);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
+            if (tfLogin.getText().equals(user.getUs_login()) && pfPassword.getText().equals(user.getUs_pass()))
+                SingletonData.getInstance().setCurrentUser(user);
         }
-        if (loginStatus == false)
-            lbl1.setText("Login Error");
+        if (SingletonData.getInstance().getCurrentUser() != null)
+            load(e);
+        else lbl1.setText("Login incorrect!");
+
     }
 
-    public void btnClick(ActionEvent actionEvent) {
+    public void btnClick(ActionEvent actionEvent) throws IOException {
         login(actionEvent);
     }
 
-    public void enterPressed(KeyEvent keyEvent) {
+    public void enterPressed(KeyEvent keyEvent) throws IOException {
         KeyCode key = keyEvent.getCode();
         if (key.toString().equals("ENTER"))
             login(keyEvent);
     }
 
-    private void dummy(Event e) throws IOException {
+    private void load(Event e) throws IOException {
         ((Node) e.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
-        Parent parent = FXMLLoader.load(getClass().getResource("/com/nadezda/diplom/view/sbMain.fxml"));
+        String viewName, roleName;
+        switch (SingletonData.getInstance().getCurrentUser().getUs_id_Role()) {
+            case 1:
+                viewName = "adm";
+                roleName = "administrator";
+                break;
+            case 2:
+                viewName = "sb";
+                roleName = "Slujba bezopasnosti";
+                break;
+            case 3:
+                viewName = "staff";
+                roleName = "staff";
+                break;
+            case 4:
+                viewName = "soglStaff";
+                roleName = "agree staff";
+                break;
+            default:
+                viewName = "staff";
+                roleName = "staff";
+                break;
+        }
+        Parent parent = FXMLLoader.load(getClass().getResource("/com/nadezda/diplom/view/" + viewName + "Main.fxml"));
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.setTitle("Slujba bezopasnosti");
+        stage.setTitle(roleName);
         stage.getIcons().add(new Image("com/nadezda/diplom/img/photologo.png"));
         stage.show();
     }
