@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="665.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nadezda.diplom.controller.SbController">
+   <children>
+      <GridPane alignment="CENTER" layoutX="9.0" layoutY="42.0" prefHeight="523.0" prefWidth="981.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="623.0" minHeight="10.0" prefHeight="584.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="tvUser" prefHeight="409.0" prefWidth="919.0" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="us_id" prefWidth="43.0" text="id" />
+                <TableColumn fx:id="us_name" prefWidth="149.0" text="name" />
+                  <TableColumn fx:id="us_sluzhba" prefWidth="75.0" text="sluzhba" />
+                  <TableColumn fx:id="us_dolj" prefWidth="157.0" text="doljnost" />
+                  <TableColumn fx:id="us_tel" prefWidth="137.0" text="tel" />
+                  <TableColumn fx:id="us_login" prefWidth="149.0" text="login" />
+                  <TableColumn fx:id="us_pass" prefWidth="179.0" text="pass" />
+                  <TableColumn fx:id="us_id_Role" prefWidth="84.0" text="id_role" />
+              </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="1000.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" text="refresh" />
+                  <Button mnemonicParsing="false" text="back" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
