@@ -36,10 +36,11 @@ public class LoginController implements Initializable {
     @FXML
     Label lbl1;
 
-    //1 - Admin
-    //2 - SB
+    //1 - administrator
+    //2 - sb
     //3 - staff
     //4 - soglStaff
+    //5 - inspector - operator
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,7 +76,7 @@ public class LoginController implements Initializable {
         switch (SingletonData.getInstance().getCurrentUser().getUs_id_Role()) {
             case 1:
                 viewName = "adm";
-                roleName = "administrator";
+                roleName = "Administrator";
                 break;
             case 2:
                 viewName = "sb";
@@ -83,21 +84,25 @@ public class LoginController implements Initializable {
                 break;
             case 3:
                 viewName = "staff";
-                roleName = "staff";
+                roleName = "Staff";
                 break;
             case 4:
                 viewName = "soglStaff";
-                roleName = "agree staff";
+                roleName = "Agree staff";
+                break;
+            case 5:
+                viewName = "inspector";
+                roleName = "Inspector";
                 break;
             default:
                 viewName = "staff";
-                roleName = "staff";
+                roleName = "Staff";
                 break;
         }
         Parent parent = FXMLLoader.load(getClass().getResource("/com/nadezda/diplom/view/" + viewName + "Main.fxml"));
         Scene scene = new Scene(parent);
         stage.setScene(scene);
-        stage.setTitle(roleName);
+        stage.setTitle("Mos metro - " + roleName);
         stage.getIcons().add(new Image("com/nadezda/diplom/img/photologo.png"));
         stage.show();
     }
